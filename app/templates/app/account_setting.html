@@ -1,0 +1,316 @@
+{% extends 'app/base.html' %}
+ {% load static %} 
+ {% block account_setting %}
+<div class="container light-style flex-grow-1 container-p-y py-5" style="background-color: #eee">
+  <h4 class="font-weight-bold mb-4">Thiết lập tài khoản</h4>
+
+  <div class="card overflow-hidden">
+    <div class="row no-gutters row-bordered row-border-light">
+      <div class="col-md-3 pt-0">
+        <div class="list-group list-group-flush account-settings-links">
+          <a
+            class="a-tab-pane list-group-item list-group-item-action active"
+            data-toggle="list"
+            href="#account-general"
+            >Tổng quan</a
+          >
+          <a
+            class="a-tab-pane list-group-item list-group-item-action"
+            data-toggle="list"
+            href="#account-change-password"
+            >Thay đổi mật khẩu</a
+          >
+          <a
+            class="a-tab-pane list-group-item list-group-item-action"
+            data-toggle="list"
+            href="#account-info"
+            >Thông tin cá nhân</a
+          >
+          <a
+            class="a-tab-pane list-group-item list-group-item-action"
+            data-toggle="list"
+            href="#account-social-links"
+            >Mạng xã hội</a
+          >
+          <a
+            class="a-tab-pane list-group-item list-group-item-action"
+            data-toggle="list"
+            href="#account-connections"
+            >Kết nối</a
+          >
+          <a
+            class="a-tab-pane list-group-item list-group-item-action"
+            data-toggle="list"
+            href="#account-notifications"
+            >Cài đặt thông báo</a
+          >
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="tab-content">
+          <div class="tab-pane fade active show " id="account-general">
+            <div class="card-body media align-items-center">
+              <img
+                src="/static/Test_ui/user.jpg"
+                alt=""
+                class="d-block ui-w-80 mb-2"
+                style="border-radius:40px"
+              />
+              <div class="media-body ml-4">
+                <label class="btn btn-outline-primary">
+                  Tải ảnh mới
+                  <input type="file" class="account-settings-fileinput" />
+                </label>
+                &nbsp;
+                <button type="button" class="btn btn-default md-btn-flat">
+                  Đặt lại
+                </button>
+
+                <div class="text-light small mt-1">
+                  Cho phép JPG, PNG. Kích cỡ 5 Mb
+                </div>
+              </div>
+            </div>
+            <hr class="border-light m-0" />
+
+            <div class="card-body">
+              <div class="form-group">
+                <label class="form-label">Tên người dùng</label>
+                <input type="text" class="form-control mb-1" value="Văn B" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Tên tài khoản</label>
+                <input type="text" class="form-control" value="tvb" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Địa chỉ email</label>
+                <input
+                  type="text"
+                  class="form-control mb-1"
+                  value="tvb@mail.com"
+                />
+                <div class="alert alert-warning mt-3">
+                  Tài khoản email chưa được xác thực. Vui lòng kiểm tra hộp thu đến trong email của bạn<br />
+                  <a href="javascript:void(0)">Gửi lại yêu cầu xác thực</a>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Nghề nghiệp</label>
+                <input type="text" class="form-control" value="Sinh viên" />
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade  " id="account-change-password">
+            <div class="card-body pb-2">
+              <div class="form-group">
+                <label class="form-label">Mật khẩu hiện tại</label>
+                <input type="password" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Mật khẩu mới</label>
+                <input type="password" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Nhập lại mật khẩu</label>
+                <input type="password" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="account-info">
+            <div class="card-body pb-2">
+              <div class="form-group">
+                <label class="form-label">Tiểu sử</label>
+                <textarea class="form-control" rows="5">
+                  Vui tính, hòa đồng, thân thiện...
+                </textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Ngày sinh</label>
+                <input type="text" class="form-control" value="25, 09, 2002" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Quê quán</label>
+                <select class="custom-select">
+                  <option>Hà Nội</option>
+                  <option selected="">Hà Tĩnh</option>
+                  <option>Ninh Bình</option>
+                  <option>Thái Bình</option>
+                  <option>Hải Phòng</option>
+                </select>
+              </div>
+            </div>
+            <hr class="border-light m-0" />
+            <div class="card-body pb-2">
+              <h6 class="mb-4">Liên hệ</h6>
+              <div class="form-group">
+                <label class="form-label">Số điện thoại</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="+0 (123) 456 7891"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Trang web</label>
+                <input type="text" class="form-control" value="" />
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="account-social-links">
+            <div class="card-body pb-2">
+              <div class="form-group">
+                <label class="form-label">Twitter</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="https://twitter.com/user"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Facebook</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="https://www.facebook.com/user"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Google+</label>
+                <input type="text" class="form-control" value="" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">LinkedIn</label>
+                <input type="text" class="form-control" value="" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Instagram</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="https://www.instagram.com/user"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="account-connections">
+            <div class="card-body">
+              <button type="button" class="btn btn-twitter">
+                Kết nối tới <strong>Twitter</strong>
+              </button>
+            </div>
+            <hr class="border-light m-0" />
+            <div class="card-body">
+              <h5 class="mb-2">
+                <a
+                  href="javascript:void(0)"
+                  class="float-right text-muted text-tiny"
+                  ><i class="ion ion-md-close"></i> Xóa</a
+                >
+                <i class="ion ion-logo-google text-google"></i>
+                Bạn đã được kết nối tới Google:
+              </h5>
+              tvb@mail.com
+            </div>
+            <hr class="border-light m-0" />
+            <div class="card-body">
+              <button type="button" class="btn btn-facebook">
+                Kết nối tới <strong>Facebook</strong>
+              </button>
+            </div>
+            <hr class="border-light m-0" />
+            <div class="card-body">
+              <button type="button" class="btn btn-instagram">
+                Kết nối tới <strong>Instagram</strong>
+              </button>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="account-notifications">
+            <div class="card-body pb-2">
+              <h6 class="mb-4">Activity</h6>
+
+              <div class="form-group">
+                <label class="switcher">
+                  <input type="checkbox" class="switcher-input" checked="" />
+                  <span class="switcher-indicator">
+                    <span class="switcher-yes"></span>
+                    <span class="switcher-no"></span>
+                  </span>
+                  <span class="switcher-label"
+                    >Email me when someone comments on my article</span
+                  >
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="switcher">
+                  <input type="checkbox" class="switcher-input" checked="" />
+                  <span class="switcher-indicator">
+                    <span class="switcher-yes"></span>
+                    <span class="switcher-no"></span>
+                  </span>
+                  <span class="switcher-label"
+                    >Email me when someone answers on my forum thread</span
+                  >
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="switcher">
+                  <input type="checkbox" class="switcher-input" />
+                  <span class="switcher-indicator">
+                    <span class="switcher-yes"></span>
+                    <span class="switcher-no"></span>
+                  </span>
+                  <span class="switcher-label"
+                    >Email me when someone follows me</span
+                  >
+                </label>
+              </div>
+            </div>
+            <hr class="border-light m-0" />
+            <div class="card-body pb-2">
+              <h6 class="mb-4">Application</h6>
+
+              <div class="form-group">
+                <label class="switcher">
+                  <input type="checkbox" class="switcher-input" checked="" />
+                  <span class="switcher-indicator">
+                    <span class="switcher-yes"></span>
+                    <span class="switcher-no"></span>
+                  </span>
+                  <span class="switcher-label">News and announcements</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="switcher">
+                  <input type="checkbox" class="switcher-input" />
+                  <span class="switcher-indicator">
+                    <span class="switcher-yes"></span>
+                    <span class="switcher-no"></span>
+                  </span>
+                  <span class="switcher-label">Weekly product updates</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="switcher">
+                  <input type="checkbox" class="switcher-input" checked="" />
+                  <span class="switcher-indicator">
+                    <span class="switcher-yes"></span>
+                    <span class="switcher-no"></span>
+                  </span>
+                  <span class="switcher-label">Weekly blog digest</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-right mt-3">
+    <button type="button" class="btn btn-primary">Lưu thay đổi</button>&nbsp;
+    <button type="button" class="btn btn-default">Hủy bỏ</button>
+  </div>
+</div>
+{% endblock account_setting %}

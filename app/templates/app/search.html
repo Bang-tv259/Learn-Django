@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+    {% block search%}
+    <div class='py-5' style="background-color: #eee">
+        <h5> Kết quả tìm kiếm cho  " {{searched}} "</h5>
+        <br>
+       <div class="row">
+      {% for product in keys %}
+      <div class="col-lg-3 col-6 col-sm-4 mt-4" >
+        <div>
+          <img src="{{product.ImageURL}}" 
+          style="height:300px;width:100%; object-fit: cover"></img>
+        </div>
+        <div class="box-element product">
+          <h6 style="margin-top:12px ;font-size: calc(0.7rem + .6vw);">
+            <strong class="product-name">{{product.name}}</strong>
+          </h6>
+          <h3 class="text-danger" style="font-size: calc(0.5rem + .6vw);" >
+            <strong>{{product.price}}VND</strong>
+          </h3>
+          <hr>
+          <button data-product={{product.id}} 
+            data-action = "add" 
+            class="btn btn-outline-secondary add-btn update-cart">
+            Thêm vào giỏ hàng
+          </button>
+          <a class="btn btn-outline-success" href="#">Xem</a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+        
+</div>
+    {% endblock search %}
+    </body>
+</html>

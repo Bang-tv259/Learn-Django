@@ -1,0 +1,119 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+
+{% block banner_slider %}
+<div id="carouselExampleInterval" class="carousel slide mt-1" data-bs-ride="carousel">
+  <div class="carousel-inner" >
+    <div class="carousel-item active" data-bs-interval="4000" style="position:relative">
+      <img src="static/app/images/banner/anh1.jpg" class="d-block w-100" style="height:400px; object-fit: cover" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="static/app/images/banner/anh2.jpg" class="d-block w-100" style="height:400px; object-fit: cover" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="static/app/images/banner/anh3.jpg" class="d-block w-100" style="height:400px; object-fit: cover"  alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{% endblock banner_slider %} 
+{% block mobile-category %}
+  <nav class="mobile-category">
+    <ul class="mobile-category__list">
+        <li class="mobile-category__item">
+            <a href="" class="mobile-category__link">Đống Đa</a>
+        </li>
+        <li class="mobile-category__item">
+            <a href="" class="mobile-category__link">Cầu Giấy</a>
+        </li>
+        <li class="mobile-category__item">
+            <a href="" class="mobile-category__link">Thanh Xuân</a>
+        </li>
+        <li class="mobile-category__item">
+            <a href="" class="mobile-category__link">Hoàng Mai</a>
+        </li>
+        <li class="mobile-category__item">
+            <a href="" class="mobile-category__link">Hoàn Kiếm</a>
+        </li>
+        <li class="mobile-category__item">
+            <a href="" class="mobile-category__link">Bắc Từ Liêm</a>
+        </li>
+        <li class="mobile-category__item">
+            <a href="" class="mobile-category__link">Nam Từ Liêm</a>
+        </li>
+        <li class="mobile-category__item">
+            <a href="" class="mobile-category__link">Mỹ Đình</a>
+        </li>
+        
+    </ul>
+  </nav>
+
+  <div class ="mobile-container-status-post">
+    <div class = "mobile-status-post">
+      <div class = "mobile-status-post-user-avt ">
+      </div>
+      <span style="margin: auto"> Bạn đang nghĩ gì? </span>
+      <span class = "mobile-status-post-img " style="margin-right:8px">
+      </span>
+    </div>
+  </div>
+
+{% endblock mobile-category %}
+{% block main-content %} 
+
+  <div class="row">
+      {% for product in products %}  
+      <div class="col-lg-3 col-12 col-sm-4" >
+        <div class ="mobile-container-post ">
+          <div class = "mobile-post bg-white">
+            
+            <div style="display:flex">
+              <div style="margin:auto">
+                <img class = "mobile-post-user-avt" src="{{product.img_owerName.url}}"></img>
+              </div>
+              <div style="margin: auto 8px">
+                <p style="margin:0"> đăng bởi {{product.ownerName}} </p>
+                <p style="margin:0"> 6 giờ trước </p>
+              </div>
+            </div>
+  
+            <span class = "mobile-post-type" style="margin:auto 8px">
+              *Chủ trọ
+            </span>
+  
+          </div>
+        </div>
+        <div>
+          <img src="{{product.ImageURL}}" class="home-product-img" ></img>
+        </div>
+        <div class="box-element product">
+          <h6 style="margin-top:12px ;font-size: calc(0.7rem + .6vw);">
+            <strong class="product-name">{{product.name}}</strong>
+          </h6>
+          <h3 class="text-danger" style="font-size: calc(0.5rem + .6vw);" >
+            <strong>{{product.price}}VND</strong>
+          </h3>
+          <hr>
+          <div class="mobile-add-view">
+            <button data-product={{product.id}} 
+              data-action = "add" 
+              class="btn btn-outline-secondary add-btn update-cart">
+              Thêm vào giỏ hàng
+            </button>
+            <a class="btn btn-outline-success" href="{%url 'detail'%}?id={{product.id}}">Xem</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+  
+
+
+{% endblock main-content%}
