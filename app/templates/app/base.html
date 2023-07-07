@@ -187,12 +187,14 @@
         </div>
       </div>
     </nav>
+  <div style="min-height:800px">
     <!-- Main body -->
+    {% block detail%} {% endblock detail%} 
     {% block register%} {% endblock register%} 
     {% block banner_slider %}{% endblock banner_slider %} 
     {% block mobile-category %}{% endblock mobile-category %}
     <div class="container">
-      {% block search%}    {% endblock search %}
+      {% block search%}  {% endblock search %}
       {% block notification %}{% endblock notification %}
       {% block account_setting %}{% endblock account_setting %}
       {% block main-content%}{% endblock main-content %}
@@ -200,29 +202,7 @@
        {% block content_checkout %}{% endblock content_checkout %}
        {% block message %}{% endblock message %}
     </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  </div>
     <!--Footer -->
 <div class="container-fluid p-0">
   <!-- Footer -->

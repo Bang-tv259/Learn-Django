@@ -13,8 +13,8 @@
     </head>
     <body>
     {% block search%}
-    <div class='py-5' style="background-color: #eee">
-        <h5> Kết quả tìm kiếm cho  " {{searched}} "</h5>
+    <div class='py-5' style="background-color: #eee; min-height:800px">
+        <h5> Kết quả tìm kiếm cho  "{{searched}}"</h5>
         <br>
        <div class="row">
       {% for product in keys %}
@@ -40,8 +40,7 @@
         </div>
       </div>
       {% endfor %}
-  </div>
-        
+  </div>     
 </div>
     {% endblock search %}
     </body>

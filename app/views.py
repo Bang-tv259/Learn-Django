@@ -26,7 +26,6 @@ def notification(request):
 
 def detail(request):
     page_current = current_page(request)
-
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(
@@ -59,12 +58,11 @@ def category(request):
 
 def search(request):
     page_current = current_page(request)
-    searched =''
-    keys=''
-    
     if request.method == "POST":
         searched = request.POST["searched"]
-        keys = Product.objects.filter(name__contains=searched)
+        if(searched == ''): keys =''
+        else:
+            keys = Product.objects.filter(name__contains = searched)
 
     if request.user.is_authenticated:
         customer = request.user
@@ -223,6 +221,8 @@ def current_page(request: HttpRequest):
         page = 'Tin nhắn'
     elif current_path == '/search/':
         page = 'Tìm kiếm'
+    elif current_path.__contains__("detail"):
+        page = 'Phòng trọ'
     else:
         page = ''
     return page
